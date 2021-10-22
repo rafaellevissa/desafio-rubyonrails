@@ -1,0 +1,180 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/user":
+    get:
+      tags:
+        - User
+      summary: list users
+      security:
+      responses:
+        '200':
+          description: successful
+    post:
+      tags:
+        - User
+      summary: create user
+      security:
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                cpf:
+                  type: string
+                email:
+                  type: string
+              required:
+              - name
+              - cpf
+              - email
+  "/api/v1/user/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+        - User
+      summary: show user
+      responses:
+        '200':
+          description: successful
+    patch:
+      tags:
+        - User
+      summary: update user
+      responses:
+        '200':
+          description: successful
+    put:
+      tags:
+        - User
+      summary: update user
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                cpf:
+                  type: string
+                email:
+                  type: string
+    delete:
+      tags:
+        - User
+      summary: delete user
+      responses:
+        '200':
+          description: successful
+  "/api/v1/order":
+    get:
+      tags:
+        - Order
+      summary: list orders
+      responses:
+        '200':
+          description: successful
+    post:
+      tags:
+        - Order
+      summary: create order
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                model:
+                  type: string
+                imei:
+                  type: string
+                value:
+                  type: double
+                installments:
+                  type: integer
+                user_id:
+                  type: integer
+              required:
+              - model
+              - imei
+              - value
+              - installments
+              - user_id
+  "/api/v1/order/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+        - Order
+      summary: show order
+      responses:
+        '200':
+          description: successful
+    patch:
+      tags:
+        - Order
+      summary: update order
+      responses:
+        '200':
+          description: successful
+    put:
+      tags:
+        - Order
+      summary: update order
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                model:
+                  type: string
+                imei:
+                  type: string
+                value:
+                  type: double
+                installments:
+                  type: integer
+                user_id:
+                  type: integer
+    delete:
+      tags:
+        - Order
+      summary: delete order
+      responses:
+        '200':
+          description: successful
